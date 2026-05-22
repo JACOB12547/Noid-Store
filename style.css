@@ -1,0 +1,115 @@
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background-color: #121212;
+    color: #ffffff;
+    margin: 0;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.filtros {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 40px;
+}
+
+.btn-filtro {
+    background-color: transparent;
+    color: #ffffff;
+    border: 1px solid #ffffff;
+    padding: 10px 20px;
+    cursor: pointer;
+    text-transform: uppercase;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.btn-filtro:hover, .btn-filtro.activo {
+    background-color: #ffffff;
+    color: #121212;
+}
+
+.grid-productos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.tarjeta-producto {
+    background-color: #1e1e1e;
+    padding: 15px;
+    text-align: center;
+    border-radius: 4px;
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: auto;
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.precio {
+    font-weight: bold;
+    color: #a0a0a0;
+}
+
+@media (max-width: 768px) {
+    .grid-productos {
+        grid-template-columns: 1fr;
+    }
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain; 
+    background-color: #ffffff; 
+    border-radius: 4px;
+    margin-bottom: 15px;
+}
+
+.tarjeta-producto {
+    background-color: #1a1a1a;
+    padding: 15px;
+    text-align: center;
+    border-radius: 12px; 
+    border: 1px solid #2a2a2a; 
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease; 
+}
+
+.tarjeta-producto:hover {
+    transform: translateY(-8px); 
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.8); 
+    border-color: #ffffff; 
+}
+
+.tarjeta-producto img {
+    width: 100%;
+    height: 280px;
+    object-fit: contain;
+    background-color: #ffffff;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    transition: opacity 0.3s ease; 
+}
+.tarjeta-producto:hover img {
+    opacity: 0.9; 
+}
+.precio {
+    font-size: 1.1rem; 
+    font-weight: bold;
+    color: #e0e0e0; 
+    margin-top: 10px;
+    letter-spacing: 1px; 
+}

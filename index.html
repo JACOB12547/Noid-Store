@@ -3,25 +3,111 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NOID STORE</title>
+    <title>NOID STORE — Catálogo Oficial</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="overlay" class="overlay"></div>
+  <aside id="carrito-drawer" class="carrito-drawer">
+    <div class="drawer-header">
+      <div>
+        <p class="drawer-eyebrow">Tu pedido</p>
+        <h2 class="drawer-title">Carrito</h2>
+      </div>
+      <button id="btn-cerrar-carrito" class="btn-cerrar" aria-label="Cerrar carrito">✕</button>
+    </div>
 
-    <header>
-        <h1>NOID STORE</h1>
-        <p>Catálogo Oficial</p>
-    </header>
+    <div id="carrito-vacio" class="carrito-vacio">
+      <span class="vacio-icon">🛍</span>
+      <p>Tu carrito está vacío</p>
+      <small>Agrega productos para comenzar</small>
+    </div>
 
+    <div id="carrito-items" class="carrito-lista"></div>
+
+    <div class="drawer-footer">
+      <div class="drawer-total-row">
+        <span class="drawer-total-label">Total</span>
+        <span id="carrito-total" class="drawer-total-valor">$ 0</span>
+      </div>
+      <span id="carrito-count" class="drawer-count">0 items</span>
+      <button id="btn-whatsapp" class="btn-whatsapp" disabled>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+        Enviar pedido por WhatsApp
+      </button>
+    </div>
+  </aside>
+
+  <header>
+    <div class="header-inner">
+      <div class="brand-block">
+        <p class="brand-eyebrow">— Catálogo Oficial 2025</p>
+        <h1 class="brand-name">NO<span>ID</span></h1>
+      </div>
+      <div class="header-right">
+        <div class="header-meta">
+          <strong>Streetwear / Colombia</strong>
+          Envíos a todo el país<br>
+          Colección disponible ahora
+        </div>
+        <button id="btn-abrir-carrito" class="btn-carrito" aria-label="Abrir carrito">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 01-8 0"/></svg>
+          <span id="carrito-count-bubble" class="carrito-bubble"></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <div class="ticker-wrap">
+    <div class="ticker-track">
+      <span>Gorras</span><span class="accent">✦</span>
+      <span>Camisetas</span><span class="accent">✦</span>
+      <span>Streetwear</span><span class="accent">✦</span>
+      <span>NOID Store</span><span class="accent">✦</span>
+      <span>Colombia</span><span class="accent">✦</span>
+      <span>Nueva Colección</span><span class="accent">✦</span>
+      <span>Gorras</span><span class="accent">✦</span>
+      <span>Camisetas</span><span class="accent">✦</span>
+      <span>Streetwear</span><span class="accent">✦</span>
+      <span>NOID Store</span><span class="accent">✦</span>
+      <span>Colombia</span><span class="accent">✦</span>
+      <span>Nueva Colección</span><span class="accent">✦</span>
+    </div>
+  </div>
+
+    <div class="filtros-wrap">
+    <span class="filtros-label">Filtrar por</span>
     <nav class="filtros">
-        <button class="btn-filtro activo" onclick="filtrarProductos('Todas')">Todas</button>
-        <button class="btn-filtro" onclick="filtrarProductos('Gorras')">Gorras</button>
-        <button class="btn-filtro" onclick="filtrarProductos('Camisetas')">Camisetas</button>
+      <button class="btn-filtro activo" onclick="filtrarProductos('Todas', this)">Todas</button>
+      <button class="btn-filtro" onclick="filtrarProductos('Gorras', this)">Gorras</button>
+      <button class="btn-filtro" onclick="filtrarProductos('Camisetas', this)">Camisetas</button>
     </nav>
+  </div>
 
-    <main id="contenedor-productos" class="grid-productos">
-        </main>
+  <div class="stats-bar">
+    <div class="stat">
+      <span class="stat-num" id="stat-total">6</span>
+      <span class="stat-label">Productos</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">2</span>
+      <span class="stat-label">Categorías</span>
+    </div>
+    <div class="stat">
+      <span class="stat-num">CO</span>
+      <span class="stat-label">Envíos</span>
+    </div>
+  </div>
 
-    <script src="script.js"></script>
+  <div class="grid-wrapper">
+    <main id="contenedor-productos" class="grid-productos"></main>
+  </div>
+
+  <footer>
+    <span class="footer-brand">NOID</span>
+    <span class="footer-copy">© 2025 — Todos los derechos reservados</span>
+  </footer>
+
+  <script src="script.js"></script>
 </body>
 </html>
